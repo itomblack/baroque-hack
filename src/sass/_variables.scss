@@ -1,0 +1,36 @@
+
+//===============================================================================
+// VARIABLES
+//===============================================================================
+$yellow: #F2DB00;
+$coral: #FF5754;
+$orange: #FF972A;
+$grey: #CACCD9;
+$midgrey: #555570;
+$ink: #000030;
+
+
+
+$short: 0.3s;
+$long: 0.85s;
+$vLong: 1.4s;
+
+
+//===============================================================================
+// BASICS
+//===============================================================================
+// box-sizing everywhere and webkit text rendering correction
+*,
+*::before,
+*:after {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+// remove padding & list styles from all <ul> as default
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+
