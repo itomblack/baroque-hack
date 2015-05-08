@@ -10,7 +10,7 @@
 @import "_variables";
 
 //===============================================================================
-// BASCIS
+// BASICS
 //===============================================================================
 // box-sizing everywhere and webkit text rendering correction
 *,
@@ -28,13 +28,32 @@ ul {
 
 html,
 body {
-  background-color: $paper;
-  color: $ink;
-  font-family: sans-serif;
-  line-height: 1.4;
+  background: url(../img/background.jpg) no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
 }
 
 //===============================================================================
 // STYLES
 //===============================================================================
 
+img {
+  position: absolute;
+  user-drag: none;
+}
+
+.column {
+  width: 10%;
+  left: 25%;
+}
+
+.plinth {
+  width: 13%;
+  left: 50%;
+}
+
+.capital {
+  width: 13%;
+  left: 75%;
+}
