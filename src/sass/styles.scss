@@ -32,6 +32,7 @@ body {
   background-size: cover;
   height: 100%;
   width: 100%;
+  font-family: 'snell Roundhand', serif;
 }
 
 //===============================================================================
@@ -40,20 +41,57 @@ body {
 
 img {
   position: absolute;
-  user-drag: none;
+  user-drag: none; 
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+
+  // background-color: red;
 }
 
 .column {
   width: 10%;
-  left: 25%;
 }
 
 .plinth {
-  width: 13%;
-  left: 50%;
+  width: 14%;
 }
 
 .capital {
-  width: 13%;
-  left: 75%;
+  width: 10%;
 }
+
+.header {
+  width: 20%;
+}
+
+.change-state{
+  width: 50%;
+  height: 100px;
+  background-color: $ink;
+  color: lighten($yellow,40%);
+  opacity: 0.9;
+  top: 40%;
+  left: 25%;
+  position: absolute;
+  border-radius: 50px;
+  display: none;
+  transition: opacity $long;
+  
+  h3 {
+    font-size: 2em;
+    text-align: center;
+    margin: 0.8em;
+    color: lighten($yellow,40%);
+    text-decoration: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+}
+
+.display {
+  display: block;
+}
+

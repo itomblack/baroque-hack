@@ -2,6 +2,38 @@
 
 var blocks = $('img');
 
+// **************** SET DATA VALUE ****************//
+// *********************************************//
+var setData = function () {
+
+  var nextWidth = 0;
+  var objCount = 0;
+  for (i = 0; i < blocks.length; i++) {
+
+
+    if (objCount > 0) {
+      var prevWidth = blocks[objCount-1].getBoundingClientRect().right;
+      nextWidth = prevWidth + 30;
+    }
+
+    blocks[i].style.transform = 'translate(' + nextWidth + 'px, 0px)';
+
+    var xVal = blocks[i].getBoundingClientRect().left;
+    var yVal = blocks[i].getBoundingClientRect().top;
+
+    // update the posiion attributes
+    blocks[i].setAttribute('data-x', xVal);
+    blocks[i].setAttribute('data-y', yVal);
+
+    objCount = objCount + 1;
+  }
+
+}
+
+setData();
+
+
+
 // **************** DRAG DETAILS ****************//
 // *********************************************//
 
@@ -24,6 +56,16 @@ interact('.drag').draggable({
   })
   .on('doubletap', function(event) {
     switchClass(event.target);
+  })
+  .on('mousedown', function(event){
+
+  var target = event.target,
+    // keep the dragged position in the data-x/data-y attributes
+    thisX = target.getBoundingClientRect().left,
+    thisY = target.getBoundingClientRect().top;
+
+    // translate the element
+    translateActual(target, thisX, thisY, 10);
   }); //END INTERACT(.DRAGGABLE)
 
 // **************** RESIZE DETAILS ****************//
@@ -63,9 +105,20 @@ function switchClass (event) {
   var currentClass = event.className;
   if (currentClass.includes('drag')) {
     newClass = currentClass.replace('drag', 'resize');
+    $('#change-resize').addClass('display');
+    $('#change-drag').removeClass('display');
+    window.setTimeout( function() {
+      $('#change-resize').removeClass('display');
+    }, 1000);
+
   } else if 
     (currentClass.includes('resize')) {
     newClass = currentClass.replace('resize', 'drag');
+    $('#change-drag').addClass('display');
+    $('#change-resize').removeClass('display');
+    window.setTimeout( function() {
+      $('#change-drag').removeClass('display');
+    }, 1000);
   }    
   event.className = newClass;
 }
@@ -78,6 +131,7 @@ function switchClass (event) {
 
 function dragMoveListener (event) {
 
+  
   var target = event.target,
     // keep the dragged position in the data-x/data-y attributes
     x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
@@ -106,10 +160,10 @@ function timedCount() {
     var x = (parseFloat(blocks[i].getAttribute('data-x')) || 0),
     currentY = parseFloat(blocks[i].getAttribute('data-y') || 0),
     objectHeight = parseFloat(blocks[i].height || 0),
-    nextY = (currentY + 5),
+    nextY = (currentY + 8),
     groundTest = currentY + objectHeight - windowHeight;
 
-      if (groundTest <= 0){
+      if (groundTest < 0){
         //call translate function
         translateElement(blocks[i], x, nextY)
       }
@@ -140,37 +194,68 @@ doTimer();
 
 function translateElement(thisOb, xVal, yVal) {
 
-  // console.log(blocks[1].id);
-  // console.log(thisOb.id + " selected");
+  // console.log(thisOb.id + 'this first')
 
-  //get this object ID
+  //get this object ID & bounding edges
   var thisBlockID = thisOb.id,
-  otherBlockID = "";
+  otherBlockID = "",
+  thisWidth = thisOb.getBoundingClientRect().width,
+  thisHeight = thisOb.getBoundingClientRect().height,
+  thisX = thisOb.getBoundingClientRect().left,
+  thisY = thisOb.getBoundingClientRect().top;
 
   //for all block objects array
+  var count = 0;
   for (i = 0; i < blocks.length; i++) {
       //if not same id 
-      otherBlockID = blocks[i].id
+      otherBlockID = blocks[count].id
+
       if (thisBlockID != otherBlockID) {
-        //check for collisions
-        console.log('test')
 
+        //get block bounding edges
+        var blocksWidth = blocks[count].getBoundingClientRect().width,
+        blocksHeight = blocks[count].getBoundingClientRect().height,
+        blocksX = blocks[count].getBoundingClientRect().left,
+        blocksY = blocks[count].getBoundingClientRect().top; 
+
+
+        //check for collisions       
+
+        if ( thisX < blocksX + blocksWidth && 
+          thisX + thisWidth > blocksX &&
+          thisY < blocksY + blocksHeight &&
+          thisHeight + thisY > blocksY ) {
+
+          // console.log(thisOb.id + 'THIS')
+
+              //if top
+              if (thisHeight + thisY > blocksY && thisY < blocksY + blocksHeight) { 
+                  translateActual(this, thisX, thisY, 0);
+                }
+
+        } else {
+          var test = '#' + thisBlockID;
+          // console.log(test)
+          // var test = $(test)
+          // console.log(test)
+          translateActual(thisOb, xVal, yVal, 0);
+        }
       }
-
-          
-
-
+      count = count + 1;
   }
 
-  thisOb.style.webkitTransform =
-   thisOb.style.transform = 'translate(' + xVal + 'px, ' + yVal + 'px)';
-   // update the posiion attributes
-    thisOb.setAttribute('data-x', xVal);
-    thisOb.setAttribute('data-y', yVal);
+  
 
 }
 
 
+function translateActual(chosenOb, xVal, yVal, plusY) {
+    chosenOb.style.webkitTransform =
+    chosenOb.style.transform = 'translate(' + (xVal) + 'px, ' + (yVal - plusY) + 'px)';
+     // update the posiion attributes
+    chosenOb.setAttribute('data-x', (xVal));
+    chosenOb.setAttribute('data-y', (yVal - plusY));
+}
 
 
 // **************** pause grav on mouseevents ******************//
@@ -180,12 +265,8 @@ window.addEventListener("mousedown", function(){
   stopCount();
 });
 
-
-//PAUSED GRAVITY!!!!!
-stopCount();
-
 window.addEventListener("mouseup", function(){
-  // doTimer();
+  doTimer();
 });
 
 

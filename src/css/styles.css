@@ -219,24 +219,57 @@ html, body {
   -webkit-background-size: cover;
   background-size: cover;
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  font-family: 'snell Roundhand', serif; }
 
-/* line 41, /Users/itomblack/Repos/baroque-hack/src/sass/styles.scss */
+/* line 42, /Users/itomblack/Repos/baroque-hack/src/sass/styles.scss */
 img {
   position: absolute;
-  user-drag: none; }
-
-/* line 46, /Users/itomblack/Repos/baroque-hack/src/sass/styles.scss */
-.column {
-  width: 10%;
-  left: 25%; }
+  user-drag: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none; }
 
 /* line 51, /Users/itomblack/Repos/baroque-hack/src/sass/styles.scss */
-.plinth {
-  width: 13%;
-  left: 50%; }
+.column {
+  width: 10%; }
 
-/* line 56, /Users/itomblack/Repos/baroque-hack/src/sass/styles.scss */
+/* line 55, /Users/itomblack/Repos/baroque-hack/src/sass/styles.scss */
+.plinth {
+  width: 14%; }
+
+/* line 59, /Users/itomblack/Repos/baroque-hack/src/sass/styles.scss */
 .capital {
-  width: 13%;
-  left: 75%; }
+  width: 10%; }
+
+/* line 63, /Users/itomblack/Repos/baroque-hack/src/sass/styles.scss */
+.header {
+  width: 20%; }
+
+/* line 67, /Users/itomblack/Repos/baroque-hack/src/sass/styles.scss */
+.change-state {
+  width: 50%;
+  height: 100px;
+  background-color: #000030;
+  color: #fff9bf;
+  opacity: 0.9;
+  top: 40%;
+  left: 25%;
+  position: absolute;
+  border-radius: 50px;
+  display: none;
+  -webkit-transition: opacity 0.85s;
+  transition: opacity 0.85s; }
+  /* line 80, /Users/itomblack/Repos/baroque-hack/src/sass/styles.scss */
+  .change-state h3 {
+    font-size: 2em;
+    text-align: center;
+    margin: 0.8em;
+    color: #fff9bf;
+    text-decoration: none; }
+  /* line 88, /Users/itomblack/Repos/baroque-hack/src/sass/styles.scss */
+  .change-state a {
+    text-decoration: none; }
+
+/* line 94, /Users/itomblack/Repos/baroque-hack/src/sass/styles.scss */
+.display {
+  display: block; }
