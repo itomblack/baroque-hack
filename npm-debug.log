@@ -1,0 +1,69 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'i' ]
+2 info using npm@2.5.1
+3 info using node@v0.12.0
+4 verbose node symlink /usr/local/bin/node
+5 verbose install where, deps [ '/Users/BIT/Documents/Design/Repos/baroque-hack',
+5 verbose install   [ 'connect',
+5 verbose install     'connect-livereload',
+5 verbose install     'gulp',
+5 verbose install     'gulp-autoprefixer',
+5 verbose install     'gulp-livereload',
+5 verbose install     'gulp-sass',
+5 verbose install     'gulp-jshint',
+5 verbose install     'jshint-stylish' ] ]
+6 verbose install where, peers [ '/Users/BIT/Documents/Design/Repos/baroque-hack', [] ]
+7 info preinstall barebones-gulp-project@0.0.1
+8 verbose already installed skipping connect@~2.17.1 /Users/BIT/Documents/Design/Repos/baroque-hack
+9 verbose already installed skipping connect-livereload@~0.4.0 /Users/BIT/Documents/Design/Repos/baroque-hack
+10 verbose already installed skipping gulp@^3.7.0 /Users/BIT/Documents/Design/Repos/baroque-hack
+11 verbose already installed skipping gulp-autoprefixer@0.0.7 /Users/BIT/Documents/Design/Repos/baroque-hack
+12 verbose already installed skipping gulp-livereload@~1.5.0 /Users/BIT/Documents/Design/Repos/baroque-hack
+13 verbose already installed skipping gulp-sass@^0.7.2 /Users/BIT/Documents/Design/Repos/baroque-hack
+14 verbose already installed skipping gulp-jshint@~1.3.4 /Users/BIT/Documents/Design/Repos/baroque-hack
+15 verbose already installed skipping jshint-stylish@http://github.com/markdurrant/jshint-stylish/tarball/master /Users/BIT/Documents/Design/Repos/baroque-hack
+16 silly install resolved []
+17 info build /Users/BIT/Documents/Design/Repos/baroque-hack
+18 verbose linkStuff [ false, false, false, '/Users/BIT/Documents/Design/Repos' ]
+19 info linkStuff barebones-gulp-project@0.0.1
+20 verbose linkBins barebones-gulp-project@0.0.1
+21 verbose linkMans barebones-gulp-project@0.0.1
+22 verbose rebuildBundles barebones-gulp-project@0.0.1
+23 verbose rebuildBundles [ '.bin',
+23 verbose rebuildBundles   'connect',
+23 verbose rebuildBundles   'connect-livereload',
+23 verbose rebuildBundles   'gulp',
+23 verbose rebuildBundles   'gulp-autoprefixer',
+23 verbose rebuildBundles   'gulp-jshint',
+23 verbose rebuildBundles   'gulp-livereload',
+23 verbose rebuildBundles   'gulp-sass',
+23 verbose rebuildBundles   'jshint-stylish' ]
+24 info install barebones-gulp-project@0.0.1
+25 verbose unsafe-perm in lifecycle true
+26 info barebones-gulp-project@0.0.1 Failed to exec install script
+27 verbose stack Error: barebones-gulp-project@0.0.1 install: `gulp sass`
+27 verbose stack Exit status 1
+27 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:213:16)
+27 verbose stack     at EventEmitter.emit (events.js:110:17)
+27 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:14:12)
+27 verbose stack     at ChildProcess.emit (events.js:110:17)
+27 verbose stack     at maybeClose (child_process.js:1008:16)
+27 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:1080:5)
+28 verbose pkgid barebones-gulp-project@0.0.1
+29 verbose cwd /Users/BIT/Documents/Design/Repos/baroque-hack
+30 error Darwin 14.1.0
+31 error argv "node" "/usr/local/bin/npm" "i"
+32 error node v0.12.0
+33 error npm  v2.5.1
+34 error code ELIFECYCLE
+35 error barebones-gulp-project@0.0.1 install: `gulp sass`
+35 error Exit status 1
+36 error Failed at the barebones-gulp-project@0.0.1 install script 'gulp sass'.
+36 error This is most likely a problem with the barebones-gulp-project package,
+36 error not with npm itself.
+36 error Tell the author that this fails on your system:
+36 error     gulp sass
+36 error You can get their info via:
+36 error     npm owner ls barebones-gulp-project
+36 error There is likely additional logging output above.
+37 verbose exit [ 1, true ]

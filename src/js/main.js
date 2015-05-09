@@ -1,6 +1,7 @@
 (function () { 
 
 var blocks = $('img');
+var currentMoving = "";
 
 // **************** SET DATA VALUE ****************//
 // *********************************************//
@@ -133,6 +134,7 @@ function dragMoveListener (event) {
 
   
   var target = event.target,
+  currentMoving = target;
     // keep the dragged position in the data-x/data-y attributes
     x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
     y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
@@ -230,7 +232,7 @@ function translateElement(thisOb, xVal, yVal) {
 
               //if top
               if (thisHeight + thisY > blocksY && thisY < blocksY + blocksHeight) { 
-                  translateActual(this, thisX, thisY, 0);
+                  translateActual(currentMoving, thisX, thisY, 0);
                 }
 
         } else {
